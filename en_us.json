@@ -1,0 +1,11 @@
+{
+  "itemGroup.techquest": "TechQuest",
+  "item.techquest.raw_tin": "Raw Tin",
+  "item.techquest.tin_ingot": "Tin Ingot",
+  "item.techquest.bronze_ingot": "Bronze Ingot",
+  "block.techquest.tin_ore": "Tin Ore",
+  "block.techquest.deepslate_tin_ore": "Deepslate Tin Ore",
+  "block.techquest.machine_casing": "Machine Casing",
+  "block.techquest.coal_generator": "Coal Generator",
+  "gui.techquest.energy": "Energy: %s / %s FE"
+}
