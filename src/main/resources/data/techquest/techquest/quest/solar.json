@@ -1,0 +1,25 @@
+{
+  "title": {
+    "translate": "quest.techquest.solar.title"
+  },
+  "description": {
+    "translate": "quest.techquest.solar.desc"
+  },
+  "icon": "techquest:solar_panel",
+  "x": 10,
+  "y": 0,
+  "dependencies": [
+    "techquest:electric_furnace"
+  ],
+  "task": {
+    "type": "place",
+    "target": "techquest:solar_panel",
+    "count": 1
+  },
+  "rewards": [
+    {
+      "id": "minecraft:diamond",
+      "count": 2
+    }
+  ]
+}

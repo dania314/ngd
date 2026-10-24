@@ -1,0 +1,33 @@
+{
+  "title": {
+    "translate": "quest.techquest.circuit.title"
+  },
+  "description": {
+    "translate": "quest.techquest.circuit.desc"
+  },
+  "icon": "techquest:basic_circuit",
+  "x": 6,
+  "y": 1,
+  "dependencies": [
+    "techquest:generator"
+  ],
+  "task": {
+    "type": "craft",
+    "target": "techquest:basic_circuit",
+    "count": 2
+  },
+  "rewards": [
+    {
+      "id": "minecraft:iron_ingot",
+      "count": 8
+    },
+    {
+      "id": "minecraft:flint",
+      "count": 6
+    },
+    {
+      "id": "minecraft:copper_ingot",
+      "count": 8
+    }
+  ]
+}

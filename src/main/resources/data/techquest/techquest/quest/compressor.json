@@ -1,0 +1,29 @@
+{
+  "title": {
+    "translate": "quest.techquest.compressor.title"
+  },
+  "description": {
+    "translate": "quest.techquest.compressor.desc"
+  },
+  "icon": "techquest:compressor",
+  "x": 7,
+  "y": 2,
+  "dependencies": [
+    "techquest:circuit"
+  ],
+  "task": {
+    "type": "place",
+    "target": "techquest:compressor",
+    "count": 1
+  },
+  "rewards": [
+    {
+      "id": "minecraft:iron_ingot",
+      "count": 6
+    },
+    {
+      "id": "techquest:tin_ingot",
+      "count": 12
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "title": {
+    "translate": "quest.techquest.electric_furnace.title"
+  },
+  "description": {
+    "translate": "quest.techquest.electric_furnace.desc"
+  },
+  "icon": "techquest:electric_furnace",
+  "x": 9,
+  "y": 1,
+  "dependencies": [
+    "techquest:dust",
+    "techquest:plates"
+  ],
+  "task": {
+    "type": "place",
+    "target": "techquest:electric_furnace",
+    "count": 1
+  },
+  "rewards": [
+    {
+      "id": "minecraft:diamond",
+      "count": 1
+    },
+    {
+      "id": "minecraft:redstone",
+      "count": 8
+    }
+  ]
+}

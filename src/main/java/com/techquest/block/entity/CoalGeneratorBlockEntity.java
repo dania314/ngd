@@ -1,11 +1,12 @@
 package com.techquest.block.entity;
 
 import com.techquest.block.CoalGeneratorBlock;
+import com.techquest.energy.EnergyUtil;
 import com.techquest.energy.MachineEnergyStorage;
 import com.techquest.menu.CoalGeneratorMenu;
 import com.techquest.registry.ModBlockEntities;
+import com.techquest.registry.ModTags;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -22,7 +23,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.energy.IEnergyStorage;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
@@ -32,9 +32,11 @@ import org.jetbrains.annotations.Nullable;
  * Если буфер энергии полон, топливо не горит (не тратится впустую).
  */
 public class CoalGeneratorBlockEntity extends BlockEntity implements MenuProvider {
-    public static final int CAPACITY = 30_000;      // FE
+    public static final int CAPACITY = 10_000;      // FE
     public static final int ENERGY_PER_TICK = 20;   // FE/t при горении
-    public static final int MAX_OUTPUT = 200;       // FE/t наружу
+    public static final int MAX_OUTPUT = 100;       // FE/t наружу
+    /** Уголь горит в 4 раза короче ванильного: 1 уголь = 400 тиков = 8000 FE. */
+    public static final int FUEL_DIVISOR = 4;
     public static final int DATA_COUNT = 4;
 
     private final MachineEnergyStorage energy = new MachineEnergyStorage(CAPACITY, 0, MAX_OUTPUT);
@@ -47,7 +49,7 @@ public class CoalGeneratorBlockEntity extends BlockEntity implements MenuProvide
 
         @Override
         public boolean isItemValid(int slot, ItemStack stack) {
-            return stack.getBurnTime(RecipeType.SMELTING) > 0;
+            return stack.is(ModTags.COAL_GENERATOR_FUEL) && stack.getBurnTime(RecipeType.SMELTING) > 0;
         }
     };
 
@@ -100,7 +102,9 @@ public class CoalGeneratorBlockEntity extends BlockEntity implements MenuProvide
         } else if (roomInBuffer) {
             ItemStack fuel = be.inventory.getStackInSlot(0);
             if (!fuel.isEmpty()) {
-                int burn = fuel.getBurnTime(RecipeType.SMELTING);
+                int burn = fuel.is(ModTags.COAL_GENERATOR_FUEL)
+                        ? fuel.getBurnTime(RecipeType.SMELTING) / FUEL_DIVISOR
+                        : 0;
                 if (burn > 0) {
                     ItemStack remainder = fuel.hasCraftingRemainingItem()
                             ? fuel.getCraftingRemainingItem()
@@ -131,24 +135,7 @@ public class CoalGeneratorBlockEntity extends BlockEntity implements MenuProvide
 
     /** Раздаём энергию всем соседям, которые умеют принимать FE. */
     private void pushEnergy(Level level, BlockPos pos) {
-        if (energy.getEnergyStored() <= 0) {
-            return;
-        }
-        for (Direction dir : Direction.values()) {
-            IEnergyStorage target = level.getCapability(Capabilities.EnergyStorage.BLOCK,
-                    pos.relative(dir), dir.getOpposite());
-            if (target == null || !target.canReceive()) {
-                continue;
-            }
-            int offer = energy.extractEnergy(MAX_OUTPUT, true);
-            if (offer <= 0) {
-                return;
-            }
-            int accepted = target.receiveEnergy(offer, false);
-            if (accepted > 0) {
-                energy.extractEnergy(accepted, false);
-            }
-        }
+        EnergyUtil.push(level, pos, energy, MAX_OUTPUT, false);
     }
 
     public void dropContents(Level level, BlockPos pos) {

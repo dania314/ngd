@@ -3,6 +3,12 @@
     "techquest:tin_ore",
     "techquest:deepslate_tin_ore",
     "techquest:machine_casing",
-    "techquest:coal_generator"
+    "techquest:coal_generator",
+    "techquest:solar_panel",
+    "techquest:macerator",
+    "techquest:compressor",
+    "techquest:electric_furnace",
+    "techquest:battery_box",
+    "techquest:tin_cable"
   ]
 }

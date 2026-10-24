@@ -1,0 +1,25 @@
+{
+  "title": {
+    "translate": "quest.techquest.tin_ingot.title"
+  },
+  "description": {
+    "translate": "quest.techquest.tin_ingot.desc"
+  },
+  "icon": "techquest:tin_ingot",
+  "x": 2,
+  "y": 1,
+  "dependencies": [
+    "techquest:tin_ore"
+  ],
+  "task": {
+    "type": "has_item",
+    "target": "techquest:tin_ingot",
+    "count": 3
+  },
+  "rewards": [
+    {
+      "id": "minecraft:copper_ingot",
+      "count": 6
+    }
+  ]
+}

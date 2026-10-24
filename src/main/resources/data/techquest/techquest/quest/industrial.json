@@ -1,0 +1,28 @@
+{
+  "title": {
+    "translate": "quest.techquest.industrial.title"
+  },
+  "description": {
+    "translate": "quest.techquest.industrial.desc"
+  },
+  "icon": "minecraft:diamond_block",
+  "x": 11,
+  "y": 1,
+  "dependencies": [
+    "techquest:solar",
+    "techquest:battery"
+  ],
+  "task": {
+    "type": "checkmark"
+  },
+  "rewards": [
+    {
+      "id": "minecraft:diamond",
+      "count": 8
+    },
+    {
+      "id": "minecraft:golden_apple",
+      "count": 2
+    }
+  ]
+}

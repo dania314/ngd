@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "T": {
+      "item": "techquest:tin_plate"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "M": {
+      "item": "techquest:machine_casing"
+    }
+  },
+  "pattern": [
+    "TTT",
+    "RMR",
+    "TTT"
+  ],
+  "result": {
+    "id": "techquest:battery_box",
+    "count": 1
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "T": {
+      "item": "techquest:tin_plate"
+    },
+    "C": {
+      "item": "techquest:basic_circuit"
+    },
+    "M": {
+      "item": "techquest:machine_casing"
+    },
+    "F": {
+      "item": "minecraft:furnace"
+    }
+  },
+  "pattern": [
+    "TTT",
+    "CMC",
+    "TFT"
+  ],
+  "result": {
+    "id": "techquest:electric_furnace",
+    "count": 1
+  }
+}

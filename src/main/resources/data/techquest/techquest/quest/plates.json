@@ -1,0 +1,29 @@
+{
+  "title": {
+    "translate": "quest.techquest.plates.title"
+  },
+  "description": {
+    "translate": "quest.techquest.plates.desc"
+  },
+  "icon": "techquest:tin_plate",
+  "x": 8,
+  "y": 2,
+  "dependencies": [
+    "techquest:compressor"
+  ],
+  "task": {
+    "type": "has_item",
+    "target": "techquest:tin_plate",
+    "count": 6
+  },
+  "rewards": [
+    {
+      "id": "minecraft:glass",
+      "count": 6
+    },
+    {
+      "id": "minecraft:redstone",
+      "count": 8
+    }
+  ]
+}

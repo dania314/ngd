@@ -1,0 +1,25 @@
+{
+  "title": {
+    "translate": "quest.techquest.dust.title"
+  },
+  "description": {
+    "translate": "quest.techquest.dust.desc"
+  },
+  "icon": "techquest:tin_dust",
+  "x": 8,
+  "y": 0,
+  "dependencies": [
+    "techquest:macerator"
+  ],
+  "task": {
+    "type": "has_item",
+    "target": "techquest:tin_dust",
+    "count": 4
+  },
+  "rewards": [
+    {
+      "id": "techquest:tin_ingot",
+      "count": 8
+    }
+  ]
+}

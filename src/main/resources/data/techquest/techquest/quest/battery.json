@@ -1,0 +1,26 @@
+{
+  "title": {
+    "translate": "quest.techquest.battery.title"
+  },
+  "description": {
+    "translate": "quest.techquest.battery.desc"
+  },
+  "icon": "techquest:battery_box",
+  "x": 10,
+  "y": 2,
+  "dependencies": [
+    "techquest:electric_furnace",
+    "techquest:cable"
+  ],
+  "task": {
+    "type": "place",
+    "target": "techquest:battery_box",
+    "count": 1
+  },
+  "rewards": [
+    {
+      "id": "minecraft:diamond",
+      "count": 2
+    }
+  ]
+}
