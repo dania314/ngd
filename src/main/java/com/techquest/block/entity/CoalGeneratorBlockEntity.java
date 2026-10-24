@@ -23,7 +23,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.capabilities.Capabilities;
-import net.neoforged.neoforge.common.CommonHooks;
 import net.neoforged.neoforge.energy.IEnergyStorage;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
@@ -48,7 +47,7 @@ public class CoalGeneratorBlockEntity extends BlockEntity implements MenuProvide
 
         @Override
         public boolean isItemValid(int slot, ItemStack stack) {
-            return CommonHooks.getBurnTime(stack, RecipeType.SMELTING) > 0;
+            return stack.getBurnTime(RecipeType.SMELTING) > 0;
         }
     };
 
@@ -101,7 +100,7 @@ public class CoalGeneratorBlockEntity extends BlockEntity implements MenuProvide
         } else if (roomInBuffer) {
             ItemStack fuel = be.inventory.getStackInSlot(0);
             if (!fuel.isEmpty()) {
-                int burn = CommonHooks.getBurnTime(fuel, RecipeType.SMELTING);
+                int burn = fuel.getBurnTime(RecipeType.SMELTING);
                 if (burn > 0) {
                     ItemStack remainder = fuel.hasCraftingRemainingItem()
                             ? fuel.getCraftingRemainingItem()
