@@ -102,7 +102,9 @@ public class WindTurbineBlock extends BaseEntityBlock {
                 player.displayClientMessage(Component.translatable("message.techquest.wind.need_sky"), true);
             } else {
                 int energy = turbine.getEnergyStorage().getEnergyStored();
-                player.displayClientMessage(Component.translatable("message.techquest.wind.status", energy), true);
+                float dur = turbine.getDurabilityFraction();
+                int pct = Math.round(dur * 100);
+                player.displayClientMessage(Component.translatable("message.techquest.wind.status_dur", energy, pct), true);
             }
         }
         return InteractionResult.CONSUME;
@@ -118,7 +120,9 @@ public class WindTurbineBlock extends BaseEntityBlock {
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state,
                                                                   BlockEntityType<T> type) {
-        if (level.isClientSide) return null;
+        if (level.isClientSide) {
+            return createTickerHelper(type, ModBlockEntities.WIND_TURBINE.get(), WindTurbineBlockEntity::clientTick);
+        }
         return createTickerHelper(type, ModBlockEntities.WIND_TURBINE.get(), WindTurbineBlockEntity::serverTick);
     }
 }

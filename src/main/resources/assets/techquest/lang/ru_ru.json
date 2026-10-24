@@ -146,5 +146,7 @@
   "message.techquest.wind.status": "Работает. Энергия: %s FE",
   "message.techquest.drill.hint1": "1) Контроллер в центре",
   "message.techquest.drill.hint2": "2) Рама с 4 сторон + 1 сверху",
-  "message.techquest.drill.hint3": "3) Головка под контроллером, затем Shift+ПКМ"
+  "message.techquest.drill.hint3": "3) Головка под контроллером, затем Shift+ПКМ",
+  "message.techquest.wind.status_dur": "Работает. Энергия: %s FE | Лопасти: %s%%",
+  "message.techquest.water.nerfed": "Водяное колесо даёт меньше FE и медленно тратит воду"
 }

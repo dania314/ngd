@@ -146,5 +146,7 @@
   "message.techquest.wind.status": "Working. Energy: %s FE",
   "message.techquest.drill.hint1": "1) Controller in center",
   "message.techquest.drill.hint2": "2) Frame on 4 sides + 1 on top",
-  "message.techquest.drill.hint3": "3) Drill Head under controller, then Shift+Right-click"
+  "message.techquest.drill.hint3": "3) Drill Head under controller, then Shift+Right-click",
+  "message.techquest.wind.status_dur": "Running. Energy: %s FE | Blade: %s%%",
+  "message.techquest.water.nerfed": "Water wheel generates less FE and slowly consumes water"
 }
