@@ -19,15 +19,15 @@
   "rewards": [
     {
       "id": "minecraft:iron_ingot",
-      "count": 8
+      "count": 4
     },
     {
       "id": "minecraft:flint",
-      "count": 6
+      "count": 4
     },
     {
       "id": "minecraft:copper_ingot",
-      "count": 8
+      "count": 4
     }
   ]
 }

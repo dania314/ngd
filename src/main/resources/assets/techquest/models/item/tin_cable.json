@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "techquest:block/tin_cable"
+    "layer0": "techquest:item/tin_cable"
   }
 }

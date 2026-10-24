@@ -1,0 +1,12 @@
+{
+  "type": "techquest:machine",
+  "machine": "macerator",
+  "ingredient": {
+    "item": "techquest:raw_silver"
+  },
+  "result": {
+    "id": "techquest:silver_dust",
+    "count": 2
+  },
+  "time": 100
+}

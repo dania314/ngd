@@ -1,6 +1,14 @@
 {
   "values": [
     "techquest:tin_ore",
-    "techquest:deepslate_tin_ore"
+    "techquest:deepslate_tin_ore",
+    "techquest:lead_ore",
+    "techquest:deepslate_lead_ore",
+    "techquest:silver_ore",
+    "techquest:deepslate_silver_ore",
+    "techquest:aluminum_ore",
+    "techquest:deepslate_aluminum_ore",
+    "techquest:nickel_ore",
+    "techquest:deepslate_nickel_ore"
   ]
 }

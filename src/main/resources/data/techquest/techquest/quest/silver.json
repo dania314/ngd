@@ -1,0 +1,25 @@
+{
+  "title": {
+    "translate": "quest.techquest.silver.title"
+  },
+  "description": {
+    "translate": "quest.techquest.silver.desc"
+  },
+  "icon": "techquest:silver_ingot",
+  "x": 3,
+  "y": 0,
+  "dependencies": [
+    "techquest:lead"
+  ],
+  "task": {
+    "type": "has_item",
+    "target": "techquest:silver_ingot",
+    "count": 4
+  },
+  "rewards": [
+    {
+      "id": "techquest:silver_plate",
+      "count": 2
+    }
+  ]
+}

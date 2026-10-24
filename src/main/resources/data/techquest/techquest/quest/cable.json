@@ -19,11 +19,11 @@
   "rewards": [
     {
       "id": "minecraft:copper_ingot",
-      "count": 8
+      "count": 4
     },
     {
       "id": "minecraft:redstone",
-      "count": 8
+      "count": 4
     }
   ]
 }

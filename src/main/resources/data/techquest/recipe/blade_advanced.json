@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NAN",
+    "ACA",
+    "NAN"
+  ],
+  "key": {
+    "N": {
+      "item": "techquest:nickel_ingot"
+    },
+    "A": {
+      "item": "techquest:aluminum_plate"
+    },
+    "C": {
+      "item": "techquest:advanced_circuit"
+    }
+  },
+  "result": {
+    "id": "techquest:blade_advanced",
+    "count": 1
+  }
+}

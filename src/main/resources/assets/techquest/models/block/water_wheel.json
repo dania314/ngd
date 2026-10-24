@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "techquest:block/water_wheel",
+    "front": "techquest:block/water_wheel",
+    "side": "techquest:block/water_wheel"
+  }
+}

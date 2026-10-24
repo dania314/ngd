@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "techquest:block/wind_turbine",
+    "front": "techquest:block/wind_turbine",
+    "side": "techquest:block/wind_turbine"
+  }
+}

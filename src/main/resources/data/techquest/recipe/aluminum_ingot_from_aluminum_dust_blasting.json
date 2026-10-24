@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "techquest:aluminum_dust"
+  },
+  "result": {
+    "id": "techquest:aluminum_ingot"
+  }
+}

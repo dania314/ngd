@@ -9,6 +9,20 @@
     "techquest:compressor",
     "techquest:electric_furnace",
     "techquest:battery_box",
-    "techquest:tin_cable"
+    "techquest:tin_cable",
+    "techquest:lead_ore",
+    "techquest:deepslate_lead_ore",
+    "techquest:silver_ore",
+    "techquest:deepslate_silver_ore",
+    "techquest:aluminum_ore",
+    "techquest:deepslate_aluminum_ore",
+    "techquest:nickel_ore",
+    "techquest:deepslate_nickel_ore",
+    "techquest:wind_turbine",
+    "techquest:water_wheel",
+    "techquest:drill_frame",
+    "techquest:drill_head",
+    "techquest:drill_controller",
+    "techquest:alloy_smelter"
   ]
 }

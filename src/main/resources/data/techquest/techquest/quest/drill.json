@@ -1,0 +1,29 @@
+{
+  "title": {
+    "translate": "quest.techquest.drill.title"
+  },
+  "description": {
+    "translate": "quest.techquest.drill.desc"
+  },
+  "icon": "techquest:drill_controller",
+  "x": 9,
+  "y": 3,
+  "dependencies": [
+    "techquest:industrial"
+  ],
+  "task": {
+    "type": "place",
+    "target": "techquest:drill_controller",
+    "count": 1
+  },
+  "rewards": [
+    {
+      "id": "techquest:drill_frame",
+      "count": 4
+    },
+    {
+      "id": "minecraft:diamond",
+      "count": 1
+    }
+  ]
+}

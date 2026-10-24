@@ -52,7 +52,9 @@ public abstract class ProcessingBlockEntity extends BlockEntity implements MenuP
 
         @Override
         public boolean isItemValid(int slot, ItemStack stack) {
-            return slot == 0 && getLevel() != null && findRecipe(getLevel(), stack).isPresent();
+            // Разрешаем любой предмет во вход: рецепт проверяется при тике.
+            // Жёсткая проверка ломала пресс/дробилку, если рецепты ещё не синхронизировались.
+            return slot == 0;
         }
     };
 

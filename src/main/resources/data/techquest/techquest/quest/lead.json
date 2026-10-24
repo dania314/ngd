@@ -1,0 +1,25 @@
+{
+  "title": {
+    "translate": "quest.techquest.lead.title"
+  },
+  "description": {
+    "translate": "quest.techquest.lead.desc"
+  },
+  "icon": "techquest:lead_ore",
+  "x": 2,
+  "y": 0,
+  "dependencies": [
+    "techquest:tin_ore"
+  ],
+  "task": {
+    "type": "mine",
+    "target": "techquest:lead_ore",
+    "count": 8
+  },
+  "rewards": [
+    {
+      "id": "techquest:lead_ingot",
+      "count": 2
+    }
+  ]
+}

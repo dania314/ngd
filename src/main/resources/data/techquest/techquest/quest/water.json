@@ -1,0 +1,29 @@
+{
+  "title": {
+    "translate": "quest.techquest.water.title"
+  },
+  "description": {
+    "translate": "quest.techquest.water.desc"
+  },
+  "icon": "techquest:water_wheel",
+  "x": 6,
+  "y": 4,
+  "dependencies": [
+    "techquest:generator"
+  ],
+  "task": {
+    "type": "place",
+    "target": "techquest:water_wheel",
+    "count": 1
+  },
+  "rewards": [
+    {
+      "id": "minecraft:oak_planks",
+      "count": 16
+    },
+    {
+      "id": "techquest:bronze_ingot",
+      "count": 2
+    }
+  ]
+}

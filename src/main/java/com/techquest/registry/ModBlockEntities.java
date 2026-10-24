@@ -9,6 +9,10 @@ import com.techquest.block.entity.ElectricFurnaceBlockEntity;
 import com.techquest.block.entity.MaceratorBlockEntity;
 import com.techquest.block.entity.ProcessingBlockEntity;
 import com.techquest.block.entity.SolarPanelBlockEntity;
+import com.techquest.block.entity.AlloySmelterBlockEntity;
+import com.techquest.block.entity.DrillControllerBlockEntity;
+import com.techquest.block.entity.WaterWheelBlockEntity;
+import com.techquest.block.entity.WindTurbineBlockEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.neoforge.capabilities.Capabilities;
@@ -45,9 +49,30 @@ public final class ModBlockEntities {
                     () -> BlockEntityType.Builder.of(SolarPanelBlockEntity::new, ModBlocks.SOLAR_PANEL.get())
                             .build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WindTurbineBlockEntity>> WIND_TURBINE =
+            BLOCK_ENTITIES.register("wind_turbine",
+                    () -> BlockEntityType.Builder.of(WindTurbineBlockEntity::new, ModBlocks.WIND_TURBINE.get())
+                            .build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WaterWheelBlockEntity>> WATER_WHEEL =
+            BLOCK_ENTITIES.register("water_wheel",
+                    () -> BlockEntityType.Builder.of(WaterWheelBlockEntity::new, ModBlocks.WATER_WHEEL.get())
+                            .build(null));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BatteryBoxBlockEntity>> BATTERY_BOX =
             BLOCK_ENTITIES.register("battery_box",
                     () -> BlockEntityType.Builder.of(BatteryBoxBlockEntity::new, ModBlocks.BATTERY_BOX.get())
+                            .build(null));
+
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DrillControllerBlockEntity>> DRILL_CONTROLLER =
+            BLOCK_ENTITIES.register("drill_controller",
+                    () -> BlockEntityType.Builder.of(DrillControllerBlockEntity::new, ModBlocks.DRILL_CONTROLLER.get())
+                            .build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<AlloySmelterBlockEntity>> ALLOY_SMELTER =
+            BLOCK_ENTITIES.register("alloy_smelter",
+                    () -> BlockEntityType.Builder.of(AlloySmelterBlockEntity::new, ModBlocks.ALLOY_SMELTER.get())
                             .build(null));
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CableBlockEntity>> TIN_CABLE =
@@ -55,7 +80,6 @@ public final class ModBlockEntities {
                     () -> BlockEntityType.Builder.of(CableBlockEntity::new, ModBlocks.TIN_CABLE.get())
                             .build(null));
 
-    /** Подключаем энергию (FE) и инвентарь к блокам — так с ними работают кабели и воронки. */
     public static void registerCapabilities(RegisterCapabilitiesEvent event) {
         event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK, COAL_GENERATOR.get(),
                 (be, side) -> be.getEnergyStorage());
@@ -68,9 +92,17 @@ public final class ModBlockEntities {
 
         event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK, SOLAR_PANEL.get(),
                 (be, side) -> be.getEnergyStorage());
+        event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK, WIND_TURBINE.get(),
+                (be, side) -> be.getEnergyStorage());
+        event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK, WATER_WHEEL.get(),
+                (be, side) -> be.getEnergyStorage());
         event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK, BATTERY_BOX.get(),
                 (be, side) -> be.getEnergyStorage());
         event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK, TIN_CABLE.get(),
+                (be, side) -> be.getEnergyStorage());
+        event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK, DRILL_CONTROLLER.get(),
+                (be, side) -> be.getEnergyStorage());
+        event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK, ALLOY_SMELTER.get(),
                 (be, side) -> be.getEnergyStorage());
     }
 
