@@ -239,6 +239,37 @@ public class QuestBookScreen extends Screen {
         }
     }
 
+
+    private int drawGuideImages(GuiGraphics g, ResourceLocation questId, int dx, int dy, int dw) {
+        String path = questId.getPath();
+        String[] keys;
+        if (path.equals("wind")) {
+            keys = new String[]{"guide_wind_1", "guide_wind_2", "guide_wind_3"};
+        } else if (path.equals("drill")) {
+            keys = new String[]{"guide_drill_1", "guide_drill_2", "guide_drill_3", "guide_drill_4"};
+        } else if (path.equals("alloy")) {
+            keys = new String[]{"guide_alloy_1", "guide_alloy_2", "guide_alloy_3", "guide_alloy_4"};
+        } else if (path.equals("water")) {
+            keys = new String[]{"guide_water_1"};
+        } else {
+            return dy;
+        }
+        int size = 48;
+        int gap = 4;
+        int x = dx;
+        int rowY = dy;
+        for (int i = 0; i < keys.length; i++) {
+            ResourceLocation tex = ResourceLocation.fromNamespaceAndPath("techquest", "textures/gui/" + keys[i] + ".png");
+            g.blit(tex, x, rowY, 0, 0, size, size, size, size);
+            x += size + gap;
+            if (x + size > dx + dw && i < keys.length - 1) {
+                x = dx;
+                rowY += size + gap;
+            }
+        }
+        return rowY + size + 8;
+    }
+
     private void drawDetails(GuiGraphics g, QuestProgress progress) {
         int dx = graphRight() + 8;
         int dw = DETAIL_W - 16;
@@ -257,7 +288,10 @@ public class QuestBookScreen extends Screen {
         dy += font.wordWrapHeight(title, dw) + 6;
 
         g.drawWordWrap(font, quest.description(), dx, dy, dw, 0xFFCCCCCC);
-        dy += font.wordWrapHeight(quest.description(), dw) + 8;
+        dy += font.wordWrapHeight(quest.description(), dw) + 6;
+
+        // Пошаговые картинки для мультиблоков / ветряка
+        dy = drawGuideImages(g, node.id(), dx, dy, dw);
 
         // Задание
         QuestTask task = quest.task();

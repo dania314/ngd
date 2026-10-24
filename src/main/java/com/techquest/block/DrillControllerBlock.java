@@ -81,17 +81,16 @@ public class DrillControllerBlock extends BaseEntityBlock {
                 level.setBlock(pos, state.setValue(FORMED, false).setValue(ACTIVE, false), Block.UPDATE_ALL);
                 player.displayClientMessage(Component.translatable("message.techquest.drill.disassembled"), true);
             } else {
-                Direction facing = state.getValue(FACING);
-                if (ModMultiblocks.DRILL().matches(level, pos, facing)) {
-                    drill.assemble(facing);
+                if (ModMultiblocks.matchesDrill(level, pos)) {
+                    drill.assemble(state.getValue(FACING));
                     level.setBlock(pos, state.setValue(FORMED, true), Block.UPDATE_ALL);
                     player.displayClientMessage(Component.translatable("message.techquest.drill.assembled"), true);
                 } else {
                     player.displayClientMessage(Component.translatable("message.techquest.drill.invalid"), true);
                     // Show steps
-                    for (String step : ModMultiblocks.DRILL().getBuildSteps()) {
-                        player.displayClientMessage(Component.literal(step), false);
-                    }
+                    player.displayClientMessage(Component.translatable("message.techquest.drill.hint1"), false);
+                    player.displayClientMessage(Component.translatable("message.techquest.drill.hint2"), false);
+                    player.displayClientMessage(Component.translatable("message.techquest.drill.hint3"), false);
                 }
             }
             return InteractionResult.CONSUME;

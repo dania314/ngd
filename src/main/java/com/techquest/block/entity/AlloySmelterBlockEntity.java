@@ -70,8 +70,7 @@ public class AlloySmelterBlockEntity extends BlockEntity implements MenuProvider
     public static void serverTick(Level level, BlockPos pos, BlockState state, AlloySmelterBlockEntity be) {
         if (!state.getValue(AlloySmelterBlock.FORMED)) return;
 
-        Direction facing = state.getValue(AlloySmelterBlock.FACING);
-        if (!ModMultiblocks.ALLOY_SMELTER().matches(level, pos, facing)) {
+        if (!ModMultiblocks.matchesAlloy(level, pos, Direction.NORTH)) {
             be.disassemble();
             level.setBlock(pos, state.setValue(AlloySmelterBlock.FORMED, false)
                     .setValue(AlloySmelterBlock.LIT, false), Block.UPDATE_ALL);

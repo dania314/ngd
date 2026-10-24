@@ -6,7 +6,9 @@ import com.techquest.item.TurbineBladeItem;
 import com.techquest.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -26,10 +28,6 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
-/**
- * База ветряка. Ставится отдельно, потом ПКМ лопастью — устанавливаются лопасти.
- * Генерирует энергию только с лопастями и на открытом воздухе (выше Y и с небом).
- */
 public class WindTurbineBlock extends BaseEntityBlock {
     public static final MapCodec<WindTurbineBlock> CODEC = simpleCodec(WindTurbineBlock::new);
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
@@ -72,16 +70,42 @@ public class WindTurbineBlock extends BaseEntityBlock {
             return ItemInteractionResult.SUCCESS;
         }
         BlockEntity be = level.getBlockEntity(pos);
-        if (be instanceof WindTurbineBlockEntity turbine) {
-            if (turbine.installBlade(stack)) {
-                if (!player.getAbilities().instabuild) {
-                    stack.shrink(1);
-                }
-                level.setBlock(pos, state.setValue(HAS_BLADES, true), Block.UPDATE_ALL);
-                return ItemInteractionResult.CONSUME;
+        if (!(be instanceof WindTurbineBlockEntity turbine)) {
+            return ItemInteractionResult.FAIL;
+        }
+        if (!turbine.getBlade().isEmpty()) {
+            player.displayClientMessage(Component.translatable("message.techquest.wind.has_blades"), true);
+            return ItemInteractionResult.FAIL;
+        }
+        if (turbine.installBlade(stack)) {
+            if (!player.getAbilities().instabuild) {
+                stack.shrink(1);
             }
+            level.setBlock(pos, state.setValue(HAS_BLADES, true), Block.UPDATE_ALL);
+            player.displayClientMessage(Component.translatable("message.techquest.wind.installed"), true);
+            return ItemInteractionResult.CONSUME;
         }
         return ItemInteractionResult.FAIL;
+    }
+
+    @Override
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos,
+                                               Player player, BlockHitResult hit) {
+        if (level.isClientSide) {
+            return InteractionResult.SUCCESS;
+        }
+        BlockEntity be = level.getBlockEntity(pos);
+        if (be instanceof WindTurbineBlockEntity turbine) {
+            if (turbine.getBlade().isEmpty()) {
+                player.displayClientMessage(Component.translatable("message.techquest.wind.need_blade"), true);
+            } else if (!level.canSeeSky(pos.above())) {
+                player.displayClientMessage(Component.translatable("message.techquest.wind.need_sky"), true);
+            } else {
+                int energy = turbine.getEnergyStorage().getEnergyStored();
+                player.displayClientMessage(Component.translatable("message.techquest.wind.status", energy), true);
+            }
+        }
+        return InteractionResult.CONSUME;
     }
 
     @Nullable

@@ -48,7 +48,7 @@ public class DrillControllerBlockEntity extends BlockEntity {
     public void assemble(Direction facing) {
         assembled = true;
         structurePositions.clear();
-        structurePositions.addAll(ModMultiblocks.DRILL().collectPositions(worldPosition, facing));
+        structurePositions.addAll(ModMultiblocks.DRILL().collectPositions(worldPosition, Direction.NORTH));
         digDepth = 0;
         digCooldown = 0;
         setChanged();
@@ -71,7 +71,7 @@ public class DrillControllerBlockEntity extends BlockEntity {
 
         // Validate structure still intact
         Direction facing = state.getValue(DrillControllerBlock.FACING);
-        if (!ModMultiblocks.DRILL().matches(level, pos, facing)) {
+        if (!ModMultiblocks.matchesDrill(level, pos)) {
             be.disassemble();
             level.setBlock(pos, state.setValue(DrillControllerBlock.FORMED, false)
                     .setValue(DrillControllerBlock.ACTIVE, false), Block.UPDATE_ALL);

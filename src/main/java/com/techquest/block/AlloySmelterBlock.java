@@ -73,8 +73,7 @@ public class AlloySmelterBlock extends BaseEntityBlock {
                 level.setBlock(pos, state.setValue(FORMED, false).setValue(LIT, false), Block.UPDATE_ALL);
                 player.displayClientMessage(Component.translatable("message.techquest.multiblock.disassembled"), true);
             } else {
-                Direction facing = state.getValue(FACING);
-                if (ModMultiblocks.ALLOY_SMELTER().matches(level, pos, facing)) {
+                if (ModMultiblocks.matchesAlloy(level, pos, state.getValue(FACING))) {
                     smelter.assemble();
                     level.setBlock(pos, state.setValue(FORMED, true), Block.UPDATE_ALL);
                     player.displayClientMessage(Component.translatable("message.techquest.multiblock.assembled"), true);
