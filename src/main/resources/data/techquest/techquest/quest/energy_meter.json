@@ -1,0 +1,25 @@
+{
+  "title": {
+    "translate": "quest.techquest.energy_meter.title"
+  },
+  "description": {
+    "translate": "quest.techquest.energy_meter.desc"
+  },
+  "icon": "techquest:energy_meter",
+  "x": 6,
+  "y": 4,
+  "dependencies": [
+    "techquest:tier_cable"
+  ],
+  "task": {
+    "type": "has_item",
+    "target": "techquest:energy_meter",
+    "count": 1
+  },
+  "rewards": [
+    {
+      "id": "minecraft:redstone",
+      "count": 8
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RCR",
+    "RIR",
+    "RCR"
+  ],
+  "key": {
+    "R": {
+      "item": "techquest:cable_mv"
+    },
+    "C": {
+      "item": "techquest:advanced_circuit"
+    },
+    "I": {
+      "item": "techquest:aluminum_ingot"
+    }
+  },
+  "result": {
+    "id": "techquest:cable_hv",
+    "count": 4
+  }
+}

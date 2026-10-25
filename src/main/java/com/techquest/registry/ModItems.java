@@ -3,6 +3,10 @@ package com.techquest.registry;
 import com.techquest.TechQuest;
 import com.techquest.item.QuestBookItem;
 import com.techquest.item.TurbineBladeItem;
+import com.techquest.armor.ExoChestItem;
+import com.techquest.armor.HazmatChestItem;
+import com.techquest.item.EnergyMeterItem;
+import com.techquest.item.StructureWrenchItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -62,6 +66,41 @@ public final class ModItems {
     public static final DeferredItem<Item> BASIC_CIRCUIT = ITEMS.registerSimpleItem("basic_circuit");
     public static final DeferredItem<Item> ADVANCED_CIRCUIT = ITEMS.registerSimpleItem("advanced_circuit");
 
+    // ---- Chemistry ----
+    public static final DeferredItem<Item> CRUDE_OIL = ITEMS.registerSimpleItem("crude_oil");
+    public static final DeferredItem<Item> MAZUT = ITEMS.registerSimpleItem("mazut");
+    public static final DeferredItem<Item> GASOLINE = ITEMS.registerSimpleItem("gasoline");
+    public static final DeferredItem<Item> LUBRICANT = ITEMS.registerSimpleItem("lubricant");
+    public static final DeferredItem<Item> PLASTIC = ITEMS.registerSimpleItem("plastic");
+    public static final DeferredItem<Item> RUBBER = ITEMS.registerSimpleItem("rubber");
+    public static final DeferredItem<Item> SULFURIC_ACID = ITEMS.registerSimpleItem("sulfuric_acid");
+    public static final DeferredItem<Item> CARBON_FIBER = ITEMS.registerSimpleItem("carbon_fiber");
+    public static final DeferredItem<Item> KEVLAR = ITEMS.registerSimpleItem("kevlar");
+    public static final DeferredItem<Item> ROCKET_FUEL = ITEMS.registerSimpleItem("rocket_fuel");
+    public static final DeferredItem<Item> SOOT = ITEMS.registerSimpleItem("soot");
+    public static final DeferredItem<Item> URANIUM_INGOT = ITEMS.registerSimpleItem("uranium_ingot");
+    public static final DeferredItem<Item> SPENT_FUEL = ITEMS.registerSimpleItem("spent_fuel");
+    public static final DeferredItem<Item> GLASSED_WASTE = ITEMS.registerSimpleItem("glassed_waste");
+
+    // ---- Exo modules ----
+    public static final DeferredItem<Item> MODULE_SERVO = ITEMS.registerSimpleItem("module_servo");
+    public static final DeferredItem<Item> MODULE_BATTERY = ITEMS.registerSimpleItem("module_battery");
+    public static final DeferredItem<Item> MODULE_FILTER = ITEMS.registerSimpleItem("module_filter");
+    public static final DeferredItem<Item> MODULE_PLATING = ITEMS.registerSimpleItem("module_plating");
+
+    public static final DeferredItem<ExoChestItem> EXO_CHEST = ITEMS.registerItem("exo_chestplate",
+            ExoChestItem::new, new Item.Properties());
+    public static final DeferredItem<HazmatChestItem> HAZMAT_CHEST = ITEMS.registerItem("hazmat_chestplate",
+            HazmatChestItem::new, new Item.Properties());
+
+    public static final DeferredItem<Item> STEEL_INGOT = ITEMS.registerSimpleItem("steel_ingot");
+    public static final DeferredItem<EnergyMeterItem> ENERGY_METER = ITEMS.registerItem("energy_meter",
+            EnergyMeterItem::new, new Item.Properties());
+    public static final DeferredItem<StructureWrenchItem> STRUCTURE_WRENCH = ITEMS.registerItem("structure_wrench",
+            StructureWrenchItem::new, new Item.Properties());
+    public static final DeferredItem<Item> LEAD_FOAM = ITEMS.registerSimpleItem("lead_foam");
+
+
     // ---- Лопасти ветряка (6 видов) ----
     // energy/tick, durability (0=infinite), craft tier
     public static final DeferredItem<TurbineBladeItem> BLADE_WOOD = ITEMS.registerItem("blade_wood",
@@ -104,6 +143,29 @@ public final class ModItems {
         blockItem("drill_head", ModBlocks.DRILL_HEAD);
         blockItem("drill_controller", ModBlocks.DRILL_CONTROLLER);
         blockItem("alloy_smelter", ModBlocks.ALLOY_SMELTER);
+        blockItem("conveyor", ModBlocks.CONVEYOR);
+        blockItem("conveyor_sealed", ModBlocks.CONVEYOR_SEALED);
+        blockItem("cable_lv", ModBlocks.CABLE_LV);
+        blockItem("cable_mv", ModBlocks.CABLE_MV);
+        blockItem("cable_hv", ModBlocks.CABLE_HV);
+        blockItem("quarry", ModBlocks.QUARRY);
+        blockItem("greenhouse", ModBlocks.GREENHOUSE);
+        blockItem("boiler", ModBlocks.BOILER);
+        blockItem("scrubber", ModBlocks.SCRUBBER);
+        blockItem("geiger_sensor", ModBlocks.GEIGER);
+        blockItem("safety_valve", ModBlocks.SAFETY_VALVE);
+        blockItem("sprinkler", ModBlocks.SPRINKLER);
+        blockItem("nuclear_reactor", ModBlocks.NUCLEAR_REACTOR);
+        blockItem("vitrification_furnace", ModBlocks.VITRIFICATION);
+        blockItem("rtg", ModBlocks.RTG);
+        blockItem("blast_furnace_controller", ModBlocks.BLAST_FURNACE);
+        blockItem("laser_drill", ModBlocks.LASER_DRILL);
+        blockItem("assembly_line", ModBlocks.ASSEMBLY_LINE);
+        blockItem("oil_deposit", ModBlocks.OIL_DEPOSIT);
+        blockItem("refinery", ModBlocks.REFINERY);
+        blockItem("chemical_reactor", ModBlocks.CHEMICAL_REACTOR);
+        blockItem("cooling_tower", ModBlocks.COOLING_TOWER);
+        blockItem("transformer", ModBlocks.TRANSFORMER);
     }
 
     private static void blockItem(String name, DeferredBlock<?> block) {

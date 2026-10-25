@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CDC",
+    "SMS",
+    "III"
+  ],
+  "key": {
+    "C": {
+      "item": "techquest:advanced_circuit"
+    },
+    "D": {
+      "item": "minecraft:diamond_pickaxe"
+    },
+    "S": {
+      "item": "techquest:steel_ingot"
+    },
+    "M": {
+      "item": "techquest:machine_casing"
+    },
+    "I": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "result": {
+    "id": "techquest:quarry"
+  }
+}

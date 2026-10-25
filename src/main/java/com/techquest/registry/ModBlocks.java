@@ -12,6 +12,26 @@ import com.techquest.block.AlloySmelterBlock;
 import com.techquest.block.DrillControllerBlock;
 import com.techquest.block.WaterWheelBlock;
 import com.techquest.block.WindTurbineBlock;
+import com.techquest.conveyor.ConveyorBlock;
+import com.techquest.conveyor.ConveyorType;
+import com.techquest.ecology.GeigerBlock;
+import com.techquest.ecology.ScrubberBlock;
+import com.techquest.ecology.BoilerBlock;
+import com.techquest.ecology.SafetyValveBlock;
+import com.techquest.ecology.SprinklerBlock;
+import com.techquest.ecology.NuclearReactorBlock;
+import com.techquest.ecology.VitrificationBlock;
+import com.techquest.ecology.RtgBlock;
+import com.techquest.ecology.BlastFurnaceBlock;
+import com.techquest.quarry.LaserDrillBlock;
+import com.techquest.chemistry.AssemblyLineBlock;
+import com.techquest.farm.GreenhouseBlock;
+import com.techquest.quarry.QuarryBlock;
+import com.techquest.chemistry.RefineryBlock;
+import com.techquest.chemistry.OilDepositBlock;
+import com.techquest.chemistry.ChemicalReactorBlock;
+import com.techquest.tier.TransformerBlock;
+
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -123,6 +143,79 @@ public final class ModBlocks {
     public static final DeferredBlock<AlloySmelterBlock> ALLOY_SMELTER = BLOCKS.registerBlock("alloy_smelter",
             AlloySmelterBlock::new,
             machineProps().lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 10 : 0));
+
+
+    // ---- 0.5+ expansion ----
+    public static final DeferredBlock<ConveyorBlock> CONVEYOR = BLOCKS.registerBlock("conveyor",
+            p -> new ConveyorBlock(p, ConveyorType.NORMAL),
+            BlockBehaviour.Properties.of().strength(1.5F).noOcclusion());
+
+    public static final DeferredBlock<ConveyorBlock> CONVEYOR_SEALED = BLOCKS.registerBlock("conveyor_sealed",
+            p -> new ConveyorBlock(p, ConveyorType.SEALED),
+            BlockBehaviour.Properties.of().strength(2.5F).noOcclusion());
+
+    public static final DeferredBlock<CableBlock> CABLE_LV = BLOCKS.registerBlock("cable_lv",
+            p -> new CableBlock(p, com.techquest.tier.EnergyTier.LV),
+            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(1.0F).noOcclusion());
+
+    public static final DeferredBlock<CableBlock> CABLE_MV = BLOCKS.registerBlock("cable_mv",
+            p -> new CableBlock(p, com.techquest.tier.EnergyTier.MV),
+            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(1.0F).noOcclusion());
+
+    public static final DeferredBlock<CableBlock> CABLE_HV = BLOCKS.registerBlock("cable_hv",
+            p -> new CableBlock(p, com.techquest.tier.EnergyTier.HV),
+            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(1.0F).noOcclusion());
+
+    public static final DeferredBlock<QuarryBlock> QUARRY = BLOCKS.registerBlock("quarry",
+            QuarryBlock::new, machineProps());
+
+    public static final DeferredBlock<GreenhouseBlock> GREENHOUSE = BLOCKS.registerBlock("greenhouse",
+            GreenhouseBlock::new, machineProps().noOcclusion());
+
+    public static final DeferredBlock<BoilerBlock> BOILER = BLOCKS.registerBlock("boiler",
+            BoilerBlock::new, machineProps());
+
+    public static final DeferredBlock<ScrubberBlock> SCRUBBER = BLOCKS.registerBlock("scrubber",
+            ScrubberBlock::new, machineProps());
+
+    public static final DeferredBlock<GeigerBlock> GEIGER = BLOCKS.registerBlock("geiger_sensor",
+            GeigerBlock::new, machineProps());
+
+    public static final DeferredBlock<SafetyValveBlock> SAFETY_VALVE = BLOCKS.registerBlock("safety_valve",
+            SafetyValveBlock::new, machineProps());
+
+    public static final DeferredBlock<SprinklerBlock> SPRINKLER = BLOCKS.registerBlock("sprinkler",
+            SprinklerBlock::new, machineProps().noOcclusion());
+
+    public static final DeferredBlock<NuclearReactorBlock> NUCLEAR_REACTOR = BLOCKS.registerBlock("nuclear_reactor",
+            NuclearReactorBlock::new, machineProps());
+
+    public static final DeferredBlock<VitrificationBlock> VITRIFICATION = BLOCKS.registerBlock("vitrification_furnace",
+            VitrificationBlock::new, machineProps());
+
+    public static final DeferredBlock<RtgBlock> RTG = BLOCKS.registerBlock("rtg",
+            RtgBlock::new, machineProps());
+
+    public static final DeferredBlock<BlastFurnaceBlock> BLAST_FURNACE = BLOCKS.registerBlock("blast_furnace_controller",
+            BlastFurnaceBlock::new, machineProps());
+
+    public static final DeferredBlock<LaserDrillBlock> LASER_DRILL = BLOCKS.registerBlock("laser_drill",
+            LaserDrillBlock::new, machineProps());
+
+    public static final DeferredBlock<AssemblyLineBlock> ASSEMBLY_LINE = BLOCKS.registerBlock("assembly_line",
+            AssemblyLineBlock::new, machineProps());
+
+    public static final DeferredBlock<OilDepositBlock> OIL_DEPOSIT = BLOCKS.registerBlock("oil_deposit",
+            OilDepositBlock::new,
+            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(1.2F).sound(SoundType.SAND));
+
+    public static final DeferredBlock<RefineryBlock> REFINERY = BLOCKS.registerBlock("refinery",
+            RefineryBlock::new, machineProps());
+    public static final DeferredBlock<ChemicalReactorBlock> CHEMICAL_REACTOR = BLOCKS.registerBlock("chemical_reactor",
+            ChemicalReactorBlock::new, machineProps());
+    public static final DeferredBlock<Block> COOLING_TOWER = BLOCKS.registerSimpleBlock("cooling_tower", machineProps());
+    public static final DeferredBlock<TransformerBlock> TRANSFORMER = BLOCKS.registerBlock("transformer",
+            TransformerBlock::new, machineProps());
 
     private static BlockBehaviour.Properties machineProps() {
         return BlockBehaviour.Properties.of()

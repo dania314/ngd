@@ -23,6 +23,7 @@
     "techquest:drill_frame",
     "techquest:drill_head",
     "techquest:drill_controller",
-    "techquest:alloy_smelter"
+    "techquest:alloy_smelter",
+    "techquest:oil_deposit"
   ]
 }

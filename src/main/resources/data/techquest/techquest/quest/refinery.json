@@ -1,0 +1,25 @@
+{
+  "title": {
+    "translate": "quest.techquest.refinery.title"
+  },
+  "description": {
+    "translate": "quest.techquest.refinery.desc"
+  },
+  "icon": "techquest:refinery",
+  "x": 4,
+  "y": 5,
+  "dependencies": [
+    "techquest:oil"
+  ],
+  "task": {
+    "type": "place",
+    "target": "techquest:refinery",
+    "count": 1
+  },
+  "rewards": [
+    {
+      "id": "techquest:plastic",
+      "count": 4
+    }
+  ]
+}

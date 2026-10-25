@@ -1,0 +1,26 @@
+{
+  "title": {
+    "translate": "quest.techquest.tier_cable.title"
+  },
+  "description": {
+    "translate": "quest.techquest.tier_cable.desc"
+  },
+  "icon": "techquest:cable_mv",
+  "x": 4,
+  "y": 4,
+  "dependencies": [
+    "techquest:cable",
+    "techquest:circuit"
+  ],
+  "task": {
+    "type": "craft",
+    "target": "techquest:cable_mv",
+    "count": 4
+  },
+  "rewards": [
+    {
+      "id": "techquest:energy_meter",
+      "count": 1
+    }
+  ]
+}

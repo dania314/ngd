@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GAG",
+    "CMC",
+    "SSS"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "A": {
+      "item": "techquest:sulfuric_acid"
+    },
+    "C": {
+      "item": "techquest:advanced_circuit"
+    },
+    "M": {
+      "item": "techquest:machine_casing"
+    },
+    "S": {
+      "item": "techquest:steel_ingot"
+    }
+  },
+  "result": {
+    "id": "techquest:chemical_reactor"
+  }
+}

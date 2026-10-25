@@ -7,9 +7,9 @@
   },
   "icon": "techquest:water_wheel",
   "x": 6,
-  "y": 4,
+  "y": 3,
   "dependencies": [
-    "techquest:generator"
+    "techquest:battery"
   ],
   "task": {
     "type": "place",
@@ -18,12 +18,8 @@
   },
   "rewards": [
     {
-      "id": "minecraft:oak_planks",
-      "count": 16
-    },
-    {
-      "id": "techquest:bronze_ingot",
-      "count": 2
+      "id": "minecraft:water_bucket",
+      "count": 1
     }
   ]
 }

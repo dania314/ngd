@@ -6,7 +6,7 @@
     "translate": "quest.techquest.battery.desc"
   },
   "icon": "techquest:battery_box",
-  "x": 10,
+  "x": 8,
   "y": 2,
   "dependencies": [
     "techquest:electric_furnace",
@@ -20,7 +20,7 @@
   "rewards": [
     {
       "id": "minecraft:diamond",
-      "count": 2
+      "count": 1
     }
   ]
 }

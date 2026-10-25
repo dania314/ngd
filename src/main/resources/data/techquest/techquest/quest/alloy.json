@@ -7,7 +7,7 @@
   },
   "icon": "techquest:alloy_smelter",
   "x": 8,
-  "y": 4,
+  "y": 1,
   "dependencies": [
     "techquest:casing"
   ],

@@ -5,20 +5,20 @@
   "description": {
     "translate": "quest.techquest.lead.desc"
   },
-  "icon": "techquest:lead_ore",
-  "x": 2,
+  "icon": "techquest:lead_ingot",
+  "x": 10,
   "y": 0,
   "dependencies": [
-    "techquest:tin_ore"
+    "techquest:tin_ingot"
   ],
   "task": {
-    "type": "mine",
-    "target": "techquest:lead_ore",
-    "count": 8
+    "type": "has_item",
+    "target": "techquest:lead_ingot",
+    "count": 4
   },
   "rewards": [
     {
-      "id": "techquest:lead_ingot",
+      "id": "minecraft:iron_ingot",
       "count": 2
     }
   ]

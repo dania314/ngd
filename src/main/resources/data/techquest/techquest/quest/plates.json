@@ -5,24 +5,20 @@
   "description": {
     "translate": "quest.techquest.plates.desc"
   },
-  "icon": "techquest:tin_plate",
-  "x": 8,
-  "y": 2,
+  "icon": "techquest:iron_plate",
+  "x": 10,
+  "y": 3,
   "dependencies": [
     "techquest:compressor"
   ],
   "task": {
     "type": "has_item",
-    "target": "techquest:tin_plate",
-    "count": 6
+    "target": "techquest:iron_plate",
+    "count": 4
   },
   "rewards": [
     {
-      "id": "minecraft:glass",
-      "count": 3
-    },
-    {
-      "id": "minecraft:redstone",
+      "id": "minecraft:iron_ingot",
       "count": 4
     }
   ]

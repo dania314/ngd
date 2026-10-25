@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S S",
+    "SCS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "techquest:steel_ingot"
+    },
+    "C": {
+      "item": "techquest:advanced_circuit"
+    }
+  },
+  "result": {
+    "id": "techquest:exo_chestplate"
+  }
+}

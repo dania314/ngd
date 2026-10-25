@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "LGL",
+    "GRG",
+    "LGL"
+  ],
+  "key": {
+    "L": {
+      "item": "techquest:lead_ingot"
+    },
+    "G": {
+      "item": "techquest:glassed_waste"
+    },
+    "R": {
+      "item": "techquest:basic_circuit"
+    }
+  },
+  "result": {
+    "id": "techquest:rtg"
+  }
+}

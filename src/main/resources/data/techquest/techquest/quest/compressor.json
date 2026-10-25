@@ -6,10 +6,10 @@
     "translate": "quest.techquest.compressor.desc"
   },
   "icon": "techquest:compressor",
-  "x": 7,
+  "x": 4,
   "y": 2,
   "dependencies": [
-    "techquest:circuit"
+    "techquest:cable"
   ],
   "task": {
     "type": "place",
@@ -19,11 +19,7 @@
   "rewards": [
     {
       "id": "minecraft:iron_ingot",
-      "count": 3
-    },
-    {
-      "id": "techquest:tin_ingot",
-      "count": 6
+      "count": 4
     }
   ]
 }

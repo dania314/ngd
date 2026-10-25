@@ -6,28 +6,20 @@
     "translate": "quest.techquest.circuit.desc"
   },
   "icon": "techquest:basic_circuit",
-  "x": 6,
-  "y": 1,
+  "x": 8,
+  "y": 3,
   "dependencies": [
-    "techquest:generator"
+    "techquest:compressor"
   ],
   "task": {
-    "type": "craft",
+    "type": "has_item",
     "target": "techquest:basic_circuit",
     "count": 2
   },
   "rewards": [
     {
-      "id": "minecraft:iron_ingot",
-      "count": 4
-    },
-    {
-      "id": "minecraft:flint",
-      "count": 4
-    },
-    {
-      "id": "minecraft:copper_ingot",
-      "count": 4
+      "id": "minecraft:redstone",
+      "count": 8
     }
   ]
 }

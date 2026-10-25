@@ -2,8 +2,8 @@ package com.techquest.block;
 
 import com.mojang.serialization.MapCodec;
 import com.techquest.block.entity.CableBlockEntity;
-import com.techquest.block.entity.EnergyBufferBlockEntity;
 import com.techquest.registry.ModBlockEntities;
+import com.techquest.tier.EnergyTier;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -28,9 +28,9 @@ import org.jetbrains.annotations.Nullable;
 import java.util.EnumMap;
 import java.util.Map;
 
-/** Кабель: сам подключается ко всем соседям, которые умеют работать с энергией. */
+/** Кабель с тиром: лимит передачи + потери. */
 public class CableBlock extends BaseEntityBlock {
-    public static final MapCodec<CableBlock> CODEC = simpleCodec(CableBlock::new);
+    public static final MapCodec<CableBlock> CODEC = simpleCodec(p -> new CableBlock(p, EnergyTier.LV));
 
     private static final Map<Direction, BooleanProperty> PROPERTIES = new EnumMap<>(Direction.class);
     private static final Map<Direction, VoxelShape> ARMS = new EnumMap<>(Direction.class);
@@ -43,7 +43,6 @@ public class CableBlock extends BaseEntityBlock {
         PROPERTIES.put(Direction.WEST, BlockStateProperties.WEST);
         PROPERTIES.put(Direction.UP, BlockStateProperties.UP);
         PROPERTIES.put(Direction.DOWN, BlockStateProperties.DOWN);
-
         ARMS.put(Direction.NORTH, Block.box(6, 6, 0, 10, 10, 6));
         ARMS.put(Direction.SOUTH, Block.box(6, 6, 10, 10, 10, 16));
         ARMS.put(Direction.EAST, Block.box(10, 6, 6, 16, 10, 10));
@@ -52,68 +51,67 @@ public class CableBlock extends BaseEntityBlock {
         ARMS.put(Direction.DOWN, Block.box(6, 0, 6, 10, 6, 10));
     }
 
+    private final EnergyTier tier;
+
     public CableBlock(Properties properties) {
+        this(properties, EnergyTier.LV);
+    }
+
+    public CableBlock(Properties properties, EnergyTier tier) {
         super(properties);
-        BlockState state = stateDefinition.any();
-        for (BooleanProperty property : PROPERTIES.values()) {
-            state = state.setValue(property, false);
+        this.tier = tier;
+        BlockState s = stateDefinition.any();
+        for (BooleanProperty p : PROPERTIES.values()) s = s.setValue(p, false);
+        registerDefaultState(s);
+    }
+
+    public EnergyTier getTier() { return tier; }
+
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec() { return CODEC; }
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> b) {
+        PROPERTIES.values().forEach(b::add);
+    }
+
+    @Override
+    public BlockState getStateForPlacement(BlockPlaceContext ctx) {
+        return withConnections(defaultBlockState(), ctx.getLevel(), ctx.getClickedPos());
+    }
+
+    @Override
+    protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos from, boolean m) {
+        if (!level.isClientSide) {
+            BlockState ns = withConnections(state, level, pos);
+            if (ns != state) level.setBlock(pos, ns, Block.UPDATE_ALL);
         }
-        registerDefaultState(state);
     }
 
-    @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
-        return CODEC;
-    }
-
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(BlockStateProperties.NORTH, BlockStateProperties.EAST, BlockStateProperties.SOUTH,
-                BlockStateProperties.WEST, BlockStateProperties.UP, BlockStateProperties.DOWN);
-    }
-
-    private BlockState computeState(Level level, BlockPos pos) {
-        BlockState state = defaultBlockState();
-        for (Direction dir : Direction.values()) {
-            boolean connect = level.getCapability(Capabilities.EnergyStorage.BLOCK,
-                    pos.relative(dir), dir.getOpposite()) != null;
-            state = state.setValue(PROPERTIES.get(dir), connect);
+    private BlockState withConnections(BlockState state, Level level, BlockPos pos) {
+        for (Direction d : Direction.values()) {
+            boolean conn = canConnect(level, pos.relative(d), d.getOpposite());
+            state = state.setValue(PROPERTIES.get(d), conn);
         }
         return state;
     }
 
-    @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return computeState(context.getLevel(), context.getClickedPos());
+    private static boolean canConnect(Level level, BlockPos pos, Direction face) {
+        if (level.getBlockState(pos).getBlock() instanceof CableBlock) return true;
+        return level.getCapability(Capabilities.EnergyStorage.BLOCK, pos, face) != null;
     }
 
     @Override
-    protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighborBlock,
-                                   BlockPos neighborPos, boolean movedByPiston) {
-        if (level.isClientSide) {
-            return;
-        }
-        BlockState updated = computeState(level, pos);
-        if (updated != state) {
-            level.setBlock(pos, updated, Block.UPDATE_ALL);
-        }
-    }
-
-    @Override
-    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext ctx) {
         VoxelShape shape = CORE;
-        for (Direction dir : Direction.values()) {
-            if (state.getValue(PROPERTIES.get(dir))) {
-                shape = Shapes.or(shape, ARMS.get(dir));
-            }
+        for (Direction d : Direction.values()) {
+            if (state.getValue(PROPERTIES.get(d))) shape = Shapes.or(shape, ARMS.get(d));
         }
         return shape;
     }
 
     @Override
-    protected RenderShape getRenderShape(BlockState state) {
-        return RenderShape.MODEL;
-    }
+    protected RenderShape getRenderShape(BlockState state) { return RenderShape.MODEL; }
 
     @Nullable
     @Override
@@ -123,11 +121,8 @@ public class CableBlock extends BaseEntityBlock {
 
     @Nullable
     @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state,
-                                                                  BlockEntityType<T> type) {
-        if (level.isClientSide) {
-            return null;
-        }
-        return createTickerHelper(type, ModBlockEntities.TIN_CABLE.get(), EnergyBufferBlockEntity::serverTick);
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+        if (level.isClientSide) return null;
+        return createTickerHelper(type, ModBlockEntities.TIN_CABLE.get(), CableBlockEntity::serverTick);
     }
 }

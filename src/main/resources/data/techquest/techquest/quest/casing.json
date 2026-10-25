@@ -6,7 +6,7 @@
     "translate": "quest.techquest.casing.desc"
   },
   "icon": "techquest:machine_casing",
-  "x": 4,
+  "x": 2,
   "y": 1,
   "dependencies": [
     "techquest:bronze"
@@ -14,20 +14,12 @@
   "task": {
     "type": "craft",
     "target": "techquest:machine_casing",
-    "count": 1
+    "count": 2
   },
   "rewards": [
     {
       "id": "minecraft:redstone",
-      "count": 2
-    },
-    {
-      "id": "techquest:bronze_ingot",
-      "count": 3
-    },
-    {
-      "id": "minecraft:furnace",
-      "count": 1
+      "count": 8
     }
   ]
 }

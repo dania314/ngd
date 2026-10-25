@@ -20,6 +20,9 @@ public final class ModNetwork {
                         QuestManager.claim(player, payload.quest());
                     }
                 }));
+
+        registrar.playToServer(QuarryTogglePayload.TYPE, QuarryTogglePayload.STREAM_CODEC,
+                QuarryTogglePayload::handle);
     }
 
     private ModNetwork() {}

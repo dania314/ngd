@@ -6,22 +6,19 @@
     "translate": "quest.techquest.tin_ore.desc"
   },
   "icon": "techquest:tin_ore",
-  "x": 1,
-  "y": 1,
+  "x": 2,
+  "y": 0,
   "dependencies": [
     "techquest:welcome"
   ],
   "task": {
     "type": "mine",
-    "target": "#c:ores/tin",
-    "count": 3,
-    "label": {
-      "translate": "block.techquest.tin_ore"
-    }
+    "target": "techquest:tin_ore",
+    "count": 8
   },
   "rewards": [
     {
-      "id": "minecraft:coal",
+      "id": "techquest:raw_tin",
       "count": 4
     }
   ]

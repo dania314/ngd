@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=north,powered=false,burning=false": {
+      "model": "techquest:block/conveyor"
+    },
+    "facing=south,powered=false,burning=false": {
+      "model": "techquest:block/conveyor",
+      "y": 180
+    },
+    "facing=west,powered=false,burning=false": {
+      "model": "techquest:block/conveyor",
+      "y": 270
+    },
+    "facing=east,powered=false,burning=false": {
+      "model": "techquest:block/conveyor",
+      "y": 90
+    },
+    "facing=north,powered=true,burning=false": {
+      "model": "techquest:block/conveyor"
+    },
+    "facing=south,powered=true,burning=false": {
+      "model": "techquest:block/conveyor",
+      "y": 180
+    },
+    "facing=west,powered=true,burning=false": {
+      "model": "techquest:block/conveyor",
+      "y": 270
+    },
+    "facing=east,powered=true,burning=false": {
+      "model": "techquest:block/conveyor",
+      "y": 90
+    },
+    "facing=north,powered=false,burning=true": {
+      "model": "techquest:block/conveyor"
+    },
+    "facing=south,powered=false,burning=true": {
+      "model": "techquest:block/conveyor",
+      "y": 180
+    },
+    "facing=west,powered=false,burning=true": {
+      "model": "techquest:block/conveyor",
+      "y": 270
+    },
+    "facing=east,powered=false,burning=true": {
+      "model": "techquest:block/conveyor",
+      "y": 90
+    },
+    "facing=north,powered=true,burning=true": {
+      "model": "techquest:block/conveyor"
+    },
+    "facing=south,powered=true,burning=true": {
+      "model": "techquest:block/conveyor",
+      "y": 180
+    },
+    "facing=west,powered=true,burning=true": {
+      "model": "techquest:block/conveyor",
+      "y": 270
+    },
+    "facing=east,powered=true,burning=true": {
+      "model": "techquest:block/conveyor",
+      "y": 90
+    }
+  }
+}

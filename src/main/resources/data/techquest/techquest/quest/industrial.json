@@ -5,24 +5,27 @@
   "description": {
     "translate": "quest.techquest.industrial.desc"
   },
-  "icon": "minecraft:diamond_block",
-  "x": 11,
-  "y": 1,
+  "icon": "techquest:advanced_circuit",
+  "x": 4,
+  "y": 10,
   "dependencies": [
-    "techquest:solar",
-    "techquest:battery"
+    "techquest:assembly",
+    "techquest:blast",
+    "techquest:rtg"
   ],
   "task": {
-    "type": "checkmark"
+    "type": "has_item",
+    "target": "techquest:advanced_circuit",
+    "count": 8
   },
   "rewards": [
     {
-      "id": "minecraft:diamond",
-      "count": 4
+      "id": "minecraft:netherite_ingot",
+      "count": 1
     },
     {
-      "id": "minecraft:golden_apple",
-      "count": 2
+      "id": "minecraft:diamond",
+      "count": 8
     }
   ]
 }

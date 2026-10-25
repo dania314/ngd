@@ -6,6 +6,12 @@ import com.techquest.block.entity.WindTurbineBlockEntity;
 import com.techquest.client.render.WindTurbineRenderer;
 import com.techquest.client.screen.CoalGeneratorScreen;
 import com.techquest.client.screen.ProcessingScreen;
+import com.techquest.client.screen.ChemMachineScreen;
+import com.techquest.client.screen.QuarryScreen;
+import com.techquest.client.screen.BoilerScreen;
+import com.techquest.client.screen.NuclearReactorScreen;
+import com.techquest.client.screen.BlastFurnaceScreen;
+import com.techquest.client.screen.AssemblyLineScreen;
 import com.techquest.registry.ModBlockEntities;
 import com.techquest.registry.ModMenus;
 import net.minecraft.client.KeyMapping;
@@ -34,6 +40,13 @@ public final class ClientSetup {
         event.register(ModMenus.MACERATOR.get(), ProcessingScreen::new);
         event.register(ModMenus.COMPRESSOR.get(), ProcessingScreen::new);
         event.register(ModMenus.ELECTRIC_FURNACE.get(), ProcessingScreen::new);
+        event.register(ModMenus.REFINERY.get(), ChemMachineScreen::new);
+        event.register(ModMenus.CHEMICAL_REACTOR.get(), ChemMachineScreen::new);
+        event.register(ModMenus.QUARRY.get(), QuarryScreen::new);
+        event.register(ModMenus.BOILER.get(), BoilerScreen::new);
+        event.register(ModMenus.NUCLEAR_REACTOR.get(), NuclearReactorScreen::new);
+        event.register(ModMenus.BLAST_FURNACE.get(), BlastFurnaceScreen::new);
+        event.register(ModMenus.ASSEMBLY_LINE.get(), AssemblyLineScreen::new);
     }
 
     @SubscribeEvent

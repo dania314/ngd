@@ -14,6 +14,7 @@ public final class ModMultiblocks {
 
     private static MultiblockPattern alloySmelter;
     private static MultiblockPattern drill;
+    private static MultiblockPattern blastFurnace;
 
     public static MultiblockPattern ALLOY_SMELTER() {
         if (alloySmelter == null) {
@@ -38,6 +39,32 @@ public final class ModMultiblocks {
                     .add(0, -1, 0, s -> s.is(ModBlocks.DRILL_HEAD.get()), "Головка снизу");
         }
         return drill;
+    }
+
+    public static MultiblockPattern BLAST_FURNACE() {
+        if (blastFurnace == null) {
+            blastFurnace = new MultiblockPattern("blast_furnace");
+            // 3x3 casing bottom
+            for (int x = -1; x <= 1; x++)
+                for (int z = -1; z <= 1; z++)
+                    blastFurnace.add(x, -1, z, s -> s.is(ModBlocks.MACHINE_CASING.get()), "Корпус низ");
+            // middle ring
+            for (int x = -1; x <= 1; x++)
+                for (int z = -1; z <= 1; z++) {
+                    if (x == 0 && z == 0) continue;
+                    blastFurnace.add(x, 0, z, s -> s.is(ModBlocks.MACHINE_CASING.get()), "Корпус середина");
+                }
+            blastFurnace.add(0, 0, 0, s -> true, "Контроллер");
+            // top 3x3
+            for (int x = -1; x <= 1; x++)
+                for (int z = -1; z <= 1; z++)
+                    blastFurnace.add(x, 1, z, s -> s.is(ModBlocks.MACHINE_CASING.get()), "Корпус верх");
+        }
+        return blastFurnace;
+    }
+
+    public static boolean matchesBlast(Level level, BlockPos origin) {
+        return BLAST_FURNACE().matches(level, origin, Direction.NORTH);
     }
 
     private static java.util.function.Predicate<BlockState> frame() {

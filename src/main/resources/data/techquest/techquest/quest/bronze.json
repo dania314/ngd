@@ -6,8 +6,8 @@
     "translate": "quest.techquest.bronze.desc"
   },
   "icon": "techquest:bronze_ingot",
-  "x": 3,
-  "y": 1,
+  "x": 6,
+  "y": 0,
   "dependencies": [
     "techquest:tin_ingot"
   ],

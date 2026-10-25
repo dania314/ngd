@@ -7,19 +7,17 @@
   },
   "icon": "techquest:quest_book",
   "x": 0,
-  "y": 1,
+  "y": 0,
   "dependencies": [],
   "task": {
-    "type": "checkmark"
+    "type": "checkmark",
+    "target": "",
+    "count": 1
   },
   "rewards": [
     {
-      "id": "minecraft:stone_pickaxe",
-      "count": 1
-    },
-    {
       "id": "minecraft:bread",
-      "count": 4
+      "count": 8
     }
   ]
 }

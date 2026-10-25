@@ -1,0 +1,25 @@
+{
+  "title": {
+    "translate": "quest.techquest.greenhouse.title"
+  },
+  "description": {
+    "translate": "quest.techquest.greenhouse.desc"
+  },
+  "icon": "techquest:greenhouse",
+  "x": 8,
+  "y": 6,
+  "dependencies": [
+    "techquest:circuit"
+  ],
+  "task": {
+    "type": "place",
+    "target": "techquest:greenhouse",
+    "count": 1
+  },
+  "rewards": [
+    {
+      "id": "minecraft:bone_meal",
+      "count": 16
+    }
+  ]
+}

@@ -6,10 +6,10 @@
     "translate": "quest.techquest.wind.desc"
   },
   "icon": "techquest:wind_turbine",
-  "x": 5,
-  "y": 4,
+  "x": 4,
+  "y": 3,
   "dependencies": [
-    "techquest:solar"
+    "techquest:battery"
   ],
   "task": {
     "type": "place",
@@ -19,11 +19,7 @@
   "rewards": [
     {
       "id": "techquest:blade_wood",
-      "count": 2
-    },
-    {
-      "id": "techquest:tin_ingot",
-      "count": 4
+      "count": 1
     }
   ]
 }

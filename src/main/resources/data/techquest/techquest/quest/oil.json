@@ -1,0 +1,25 @@
+{
+  "title": {
+    "translate": "quest.techquest.oil.title"
+  },
+  "description": {
+    "translate": "quest.techquest.oil.desc"
+  },
+  "icon": "techquest:oil_deposit",
+  "x": 2,
+  "y": 5,
+  "dependencies": [
+    "techquest:circuit"
+  ],
+  "task": {
+    "type": "mine",
+    "target": "techquest:oil_deposit",
+    "count": 4
+  },
+  "rewards": [
+    {
+      "id": "techquest:crude_oil",
+      "count": 4
+    }
+  ]
+}
