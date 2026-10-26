@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "techquest:block/battery_box_top",
-    "side": "techquest:block/battery_box_side"
-  }
-}
