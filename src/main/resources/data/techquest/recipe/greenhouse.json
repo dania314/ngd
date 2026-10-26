@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GGG",
+    "GCG",
+    "SMS"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "C": {
+      "item": "minecraft:bone_meal"
+    },
+    "S": {
+      "item": "techquest:steel_ingot"
+    },
+    "M": {
+      "item": "techquest:machine_casing"
+    }
+  },
+  "result": {
+    "id": "techquest:greenhouse"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "title": {
+    "translate": "quest.techquest.laser.title"
+  },
+  "description": {
+    "translate": "quest.techquest.laser.desc"
+  },
+  "icon": "techquest:laser_drill",
+  "x": 4,
+  "y": 9,
+  "dependencies": [
+    "techquest:nuclear",
+    "techquest:circuit"
+  ],
+  "task": {
+    "type": "place",
+    "target": "techquest:laser_drill",
+    "count": 1
+  },
+  "rewards": [
+    {
+      "id": "minecraft:diamond",
+      "count": 4
+    }
+  ]
+}

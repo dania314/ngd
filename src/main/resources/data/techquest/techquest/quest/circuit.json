@@ -1,0 +1,25 @@
+{
+  "title": {
+    "translate": "quest.techquest.circuit.title"
+  },
+  "description": {
+    "translate": "quest.techquest.circuit.desc"
+  },
+  "icon": "techquest:basic_circuit",
+  "x": 8,
+  "y": 3,
+  "dependencies": [
+    "techquest:compressor"
+  ],
+  "task": {
+    "type": "has_item",
+    "target": "techquest:basic_circuit",
+    "count": 2
+  },
+  "rewards": [
+    {
+      "id": "minecraft:redstone",
+      "count": 8
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "techquest:block/water_wheel"
+    },
+    "facing=south": {
+      "model": "techquest:block/water_wheel",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "techquest:block/water_wheel",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "techquest:block/water_wheel",
+      "y": 90
+    }
+  }
+}

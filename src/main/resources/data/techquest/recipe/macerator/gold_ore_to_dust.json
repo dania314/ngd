@@ -1,0 +1,12 @@
+{
+  "type": "techquest:machine",
+  "machine": "macerator",
+  "ingredient": {
+    "tag": "c:ores/gold"
+  },
+  "result": {
+    "id": "techquest:gold_dust",
+    "count": 2
+  },
+  "time": 100
+}

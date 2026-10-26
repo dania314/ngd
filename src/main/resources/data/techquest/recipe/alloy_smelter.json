@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PBP",
+    "CMC",
+    "PBP"
+  ],
+  "key": {
+    "P": {
+      "item": "techquest:bronze_plate"
+    },
+    "B": {
+      "item": "techquest:basic_circuit"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "M": {
+      "item": "techquest:machine_casing"
+    }
+  },
+  "result": {
+    "id": "techquest:alloy_smelter",
+    "count": 1
+  }
+}

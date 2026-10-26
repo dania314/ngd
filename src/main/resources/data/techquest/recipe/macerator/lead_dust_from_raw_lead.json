@@ -1,0 +1,12 @@
+{
+  "type": "techquest:machine",
+  "machine": "macerator",
+  "ingredient": {
+    "item": "techquest:raw_lead"
+  },
+  "result": {
+    "id": "techquest:lead_dust",
+    "count": 2
+  },
+  "time": 100
+}

@@ -1,0 +1,25 @@
+{
+  "title": {
+    "translate": "quest.techquest.wind.title"
+  },
+  "description": {
+    "translate": "quest.techquest.wind.desc"
+  },
+  "icon": "techquest:wind_turbine",
+  "x": 4,
+  "y": 3,
+  "dependencies": [
+    "techquest:battery"
+  ],
+  "task": {
+    "type": "place",
+    "target": "techquest:wind_turbine",
+    "count": 1
+  },
+  "rewards": [
+    {
+      "id": "techquest:blade_wood",
+      "count": 1
+    }
+  ]
+}

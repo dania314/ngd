@@ -1,0 +1,12 @@
+{
+  "type": "techquest:machine",
+  "machine": "macerator",
+  "ingredient": {
+    "tag": "c:raw_materials/iron"
+  },
+  "result": {
+    "id": "techquest:iron_dust",
+    "count": 2
+  },
+  "time": 100
+}

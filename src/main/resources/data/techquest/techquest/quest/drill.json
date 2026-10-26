@@ -1,0 +1,25 @@
+{
+  "title": {
+    "translate": "quest.techquest.drill.title"
+  },
+  "description": {
+    "translate": "quest.techquest.drill.desc"
+  },
+  "icon": "techquest:drill_controller",
+  "x": 4,
+  "y": 6,
+  "dependencies": [
+    "techquest:steel"
+  ],
+  "task": {
+    "type": "place",
+    "target": "techquest:drill_controller",
+    "count": 1
+  },
+  "rewards": [
+    {
+      "id": "techquest:drill_head",
+      "count": 1
+    }
+  ]
+}

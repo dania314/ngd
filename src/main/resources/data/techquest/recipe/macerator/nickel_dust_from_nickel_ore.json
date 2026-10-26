@@ -1,0 +1,12 @@
+{
+  "type": "techquest:machine",
+  "machine": "macerator",
+  "ingredient": {
+    "item": "techquest:nickel_ore"
+  },
+  "result": {
+    "id": "techquest:nickel_dust",
+    "count": 2
+  },
+  "time": 100
+}

@@ -1,0 +1,25 @@
+{
+  "title": {
+    "translate": "quest.techquest.nuclear.title"
+  },
+  "description": {
+    "translate": "quest.techquest.nuclear.desc"
+  },
+  "icon": "techquest:nuclear_reactor",
+  "x": 4,
+  "y": 8,
+  "dependencies": [
+    "techquest:uranium"
+  ],
+  "task": {
+    "type": "place",
+    "target": "techquest:nuclear_reactor",
+    "count": 1
+  },
+  "rewards": [
+    {
+      "id": "techquest:hazmat_chestplate",
+      "count": 1
+    }
+  ]
+}

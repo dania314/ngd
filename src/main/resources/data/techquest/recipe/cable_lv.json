@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RRR"
+  ],
+  "key": {
+    "R": {
+      "item": "techquest:tin_cable"
+    }
+  },
+  "result": {
+    "id": "techquest:cable_lv",
+    "count": 3
+  }
+}

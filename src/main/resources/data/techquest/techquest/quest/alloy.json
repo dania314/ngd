@@ -1,0 +1,25 @@
+{
+  "title": {
+    "translate": "quest.techquest.alloy.title"
+  },
+  "description": {
+    "translate": "quest.techquest.alloy.desc"
+  },
+  "icon": "techquest:alloy_smelter",
+  "x": 8,
+  "y": 1,
+  "dependencies": [
+    "techquest:casing"
+  ],
+  "task": {
+    "type": "place",
+    "target": "techquest:alloy_smelter",
+    "count": 1
+  },
+  "rewards": [
+    {
+      "id": "techquest:bronze_ingot",
+      "count": 4
+    }
+  ]
+}

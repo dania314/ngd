@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PIP",
+    "CMC",
+    "SSS"
+  ],
+  "key": {
+    "P": {
+      "item": "techquest:plastic"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "C": {
+      "item": "techquest:basic_circuit"
+    },
+    "M": {
+      "item": "techquest:machine_casing"
+    },
+    "S": {
+      "item": "techquest:steel_ingot"
+    }
+  },
+  "result": {
+    "id": "techquest:refinery"
+  }
+}

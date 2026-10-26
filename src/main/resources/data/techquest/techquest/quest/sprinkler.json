@@ -1,0 +1,25 @@
+{
+  "title": {
+    "translate": "quest.techquest.sprinkler.title"
+  },
+  "description": {
+    "translate": "quest.techquest.sprinkler.desc"
+  },
+  "icon": "techquest:sprinkler",
+  "x": 6,
+  "y": 7,
+  "dependencies": [
+    "techquest:conveyor"
+  ],
+  "task": {
+    "type": "place",
+    "target": "techquest:sprinkler",
+    "count": 1
+  },
+  "rewards": [
+    {
+      "id": "minecraft:water_bucket",
+      "count": 2
+    }
+  ]
+}

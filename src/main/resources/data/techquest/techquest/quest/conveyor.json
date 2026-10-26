@@ -1,0 +1,25 @@
+{
+  "title": {
+    "translate": "quest.techquest.conveyor.title"
+  },
+  "description": {
+    "translate": "quest.techquest.conveyor.desc"
+  },
+  "icon": "techquest:conveyor",
+  "x": 2,
+  "y": 4,
+  "dependencies": [
+    "techquest:circuit"
+  ],
+  "task": {
+    "type": "place",
+    "target": "techquest:conveyor",
+    "count": 8
+  },
+  "rewards": [
+    {
+      "id": "techquest:rubber",
+      "count": 4
+    }
+  ]
+}

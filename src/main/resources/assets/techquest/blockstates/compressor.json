@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,lit=false": {
+      "model": "techquest:block/compressor"
+    },
+    "facing=east,lit=false": {
+      "model": "techquest:block/compressor",
+      "y": 90
+    },
+    "facing=south,lit=false": {
+      "model": "techquest:block/compressor",
+      "y": 180
+    },
+    "facing=west,lit=false": {
+      "model": "techquest:block/compressor",
+      "y": 270
+    },
+    "facing=north,lit=true": {
+      "model": "techquest:block/compressor_on"
+    },
+    "facing=east,lit=true": {
+      "model": "techquest:block/compressor_on",
+      "y": 90
+    },
+    "facing=south,lit=true": {
+      "model": "techquest:block/compressor_on",
+      "y": 180
+    },
+    "facing=west,lit=true": {
+      "model": "techquest:block/compressor_on",
+      "y": 270
+    }
+  }
+}

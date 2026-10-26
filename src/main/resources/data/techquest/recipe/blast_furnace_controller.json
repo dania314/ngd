@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "SCS",
+    "SFS"
+  ],
+  "key": {
+    "S": {
+      "item": "techquest:steel_ingot"
+    },
+    "C": {
+      "item": "techquest:advanced_circuit"
+    },
+    "F": {
+      "item": "minecraft:blast_furnace"
+    }
+  },
+  "result": {
+    "id": "techquest:blast_furnace_controller"
+  }
+}

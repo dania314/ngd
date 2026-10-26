@@ -1,0 +1,25 @@
+{
+  "title": {
+    "translate": "quest.techquest.solar.title"
+  },
+  "description": {
+    "translate": "quest.techquest.solar.desc"
+  },
+  "icon": "techquest:solar_panel",
+  "x": 2,
+  "y": 3,
+  "dependencies": [
+    "techquest:battery"
+  ],
+  "task": {
+    "type": "place",
+    "target": "techquest:solar_panel",
+    "count": 1
+  },
+  "rewards": [
+    {
+      "id": "minecraft:glass",
+      "count": 8
+    }
+  ]
+}

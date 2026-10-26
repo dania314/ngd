@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RRR",
+    "I I",
+    "RRR"
+  ],
+  "key": {
+    "R": {
+      "item": "techquest:rubber"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "techquest:conveyor",
+    "count": 8
+  }
+}

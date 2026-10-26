@@ -1,0 +1,25 @@
+{
+  "title": {
+    "translate": "quest.techquest.generator.title"
+  },
+  "description": {
+    "translate": "quest.techquest.generator.desc"
+  },
+  "icon": "techquest:coal_generator",
+  "x": 4,
+  "y": 1,
+  "dependencies": [
+    "techquest:casing"
+  ],
+  "task": {
+    "type": "place",
+    "target": "techquest:coal_generator",
+    "count": 1
+  },
+  "rewards": [
+    {
+      "id": "minecraft:coal",
+      "count": 16
+    }
+  ]
+}
